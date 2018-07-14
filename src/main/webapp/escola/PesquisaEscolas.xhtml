@@ -1,0 +1,70 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Pesquisa de Escolas de Samba</ui:define>
+
+	<ui:define name="corpo">
+		<h1>Pesquisa de Escolas de Samba</h1>
+
+		<h:form id="frmPesquisa">
+			<p:messages id="messages" autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Novo" id="botaoNovo"
+						action="/escola/CadastroEscola.xhtml" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:dataTable id="escolaSambasTable"
+				value="#{pesquisaEscolaSambaBean.escolaSambas}" var="escolaSamba"
+				style="margin-top: 20px"
+				emptyMessage="Nenhum escola de samba encontrada." rows="20"
+				paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+
+				<p:column headerText="Código"
+					style="text-align: center; width: 100px">
+					<h:outputText value="#{escolaSamba.id}" />
+				</p:column>
+				<p:column headerText="Nome">
+					<h:outputText value="#{escolaSamba.nome}" />
+				</p:column>
+				<p:column headerText="CNPJ">
+					<h:outputText value="#{escolaSamba.cnpj}" />
+				</p:column>
+
+				<p:column style="width: 100px; text-align: center">
+					<p:button outcome="CadastroEscola" icon="ui-icon-pencil"
+						title="Editar">
+						<f:param name="escolaSamba" value="#{escolaSamba.id}" />
+					</p:button>
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+						oncomplete="confirmacaoExclusao.show()" process="@this"
+						update=":frmPesquisa:confirmacaoExclusaoDialog">
+						<f:setPropertyActionListener
+							target="#{pesquisaEscolaSambaBean.escolaSambaSelecionado}"
+							value="#{escolaSamba}" />
+					</p:commandButton>
+				</p:column>
+
+			</p:dataTable>
+
+			<p:confirmDialog id="confirmacaoExclusaoDialog"
+				widgetVar="confirmacaoExclusao"
+				message="Tem certeza que deseja excluir a escola de samba  #{pesquisaEscolaSambaBean.escolaSambaSelecionado.nome}?"
+				header="Exclusão de Escola de Samba" severity="alert">
+				<p:button value="Não"
+					onclick="confirmacaoExclusao.hide(); return false;" />
+				<p:commandButton value="Sim" update=":frmPesquisa:escolaSambasTable"
+					onclick="confirmacaoExclusao.hide()"
+					action="#{pesquisaEscolaSambaBean.excluir}" />
+			</p:confirmDialog>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

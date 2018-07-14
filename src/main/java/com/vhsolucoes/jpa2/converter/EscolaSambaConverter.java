@@ -5,25 +5,25 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import com.vhsolucoes.jpa2.dao.JuradoDAO;
-import com.vhsolucoes.jpa2.modelo.Jurado;
+import com.vhsolucoes.jpa2.dao.EscolaSambaDAO;
+import com.vhsolucoes.jpa2.modelo.EscolaSamba;
 import com.vhsolucoes.jpa2.util.cdi.CDIServiceLocator;
 
-@FacesConverter(forClass = Jurado.class)
-public class JuradoConverter implements Converter {
+@FacesConverter(forClass = EscolaSamba.class)
+public class EscolaSambaConverter implements Converter {
 
-	private JuradoDAO juradoDAO;
+	private EscolaSambaDAO escolaSambaDAO;
 
-	public JuradoConverter() {
-		this.juradoDAO = CDIServiceLocator.getBean(JuradoDAO.class);
+	public EscolaSambaConverter() {
+		this.escolaSambaDAO = CDIServiceLocator.getBean(EscolaSambaDAO.class);
 	}
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		Jurado retorno = null;
+		EscolaSamba retorno = null;
 
 		if (value != null) {
-			retorno = this.juradoDAO.buscarPeloId(new Long(value));
+			retorno = this.escolaSambaDAO.buscarPeloId(new Long(value));
 		}
 
 		return retorno;
@@ -32,7 +32,7 @@ public class JuradoConverter implements Converter {
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		if (value != null) {
-			Long codigo = ((Jurado) value).getId();
+			Long codigo = ((EscolaSamba) value).getId();
 			String retorno = (codigo == null ? null : codigo.toString());
 
 			return retorno;
