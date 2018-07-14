@@ -34,7 +34,7 @@ public class CadastroEscolaSambaBean implements Serializable {
 	public void salvar() {
 		try {
 			this.cadastroEscolaSambaService.salvar(escolaSamba);
-			FacesUtil.addSuccessMessage("Escola de saamba salva com sucesso!");
+			FacesUtil.addSuccessMessage("Escola de samba salva com sucesso!");
 
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
