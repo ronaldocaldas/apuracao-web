@@ -1,0 +1,63 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">Apuração</ui:define>
+
+	<ui:define name="corpo">
+		<h1>Apuração</h1>
+
+		<h:form id="frmVotacao">
+			<p:messages id="messages" autoUpdate="true" closable="true" />
+			<p:dataTable id="apuracaoTable" value="#{apuracaoBean.listApuracao}"
+				var="apuracao" sortBy="#{apuracao.nomeEscola}"
+				style="margin-top: 20px" emptyMessage="Nenhuma apuração encontrada."
+				rows="20" paginator="true" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+
+					<p:column headerText="Escola" colspan="5"
+						style="text-align: center; width: 100px" groupRow="true">
+						<h:outputText value="#{apuracao.nomeEscola}" />
+					</p:column>
+				
+				<p:column headerText="Quesito" groupRow="true"
+					style="text-align: center; width: 100px">
+					<h:outputText value="#{apuracao.nomeQuesito}" />
+				</p:column>
+
+				<p:column headerText="Menor Nota"
+					style="text-align: center; width: 100px">
+					<h:outputText value="#{apuracao.menorNota}" />
+				</p:column>
+
+				<p:column headerText="Maior Nota"
+					style="text-align: center; width: 100px">
+					<h:outputText value="#{apuracao.maiorNota}" />
+				</p:column>
+
+				<p:column headerText="Média"
+					style="text-align: center; width: 100px">
+					<h:outputText value="#{apuracao.media}" />
+				</p:column>
+
+				<p:column headerText="Nota" style="text-align: center; width: 100px">
+					<h:outputText value="#{apuracao.nota}" />
+				</p:column>
+
+				<p:summaryRow>
+					<p:column colspan="4" style="text-align:right">
+						<h:outputText value="Total:" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{apuracao.totalPorEscola}" />
+					</p:column>
+				</p:summaryRow>
+
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
