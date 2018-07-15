@@ -1,0 +1,61 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">Votação</ui:define>
+
+	<ui:define name="corpo">
+		<f:metadata>
+			<o:viewParam name="nota" value="#{votacaoBean.nota}" />
+		</f:metadata>
+
+		<h1>Votação</h1>
+
+		<h:form id="frmVotacao">
+			<p:messages id="messages" autoUpdate="true" closable="true" />
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+				<p:outputLabel value="Jurado" for="jurado" />
+				<p:selectOneMenu id="jurado"
+					value="#{votacaoBean.nota.jurado}" required="true">
+					<f:selectItem itemLabel="Selecione o Jurado" />
+					<f:selectItems value="#{votacaoBean.jurados}" var="jurado"
+						itemLabel="#{jurado.nome}" itemValue="#{jurado}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Escola de Samba" for="escola" />
+				<p:selectOneMenu id="escola"
+					value="#{votacaoBean.nota.escola}" required="true">
+					<f:selectItem itemLabel="Selecione a Escola" />
+					<f:selectItems value="#{votacaoBean.escolas}" var="escola"
+						itemLabel="#{escola.nome}" itemValue="#{escola}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Quesito" for="quesito" />
+				<p:selectOneMenu id="quesito"
+					value="#{votacaoBean.nota.quesito}" required="true">
+					<f:selectItem itemLabel="Selecione quesito" />
+					<f:selectItems value="#{votacaoBean.quesitos}" var="quesito"
+						itemLabel="#{quesito.nome}" itemValue="#{quesito}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Nota" for="nota" />
+				<p:inputText id="nota" size="2" maxlength="2"
+					value="#{votacaoBean.nota.nota}" required="true"/>
+
+			</p:panelGrid>
+			
+			<p:toolbar style="margin-top: 20px">
+	    		<p:toolbarGroup>
+	    			<p:commandButton value="Salvar" id="botaoSalvar" action="#{votacaoBean.salvar}" update="frmVotacao" />
+	    		</p:toolbarGroup>
+	    	</p:toolbar>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>
