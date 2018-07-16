@@ -15,6 +15,11 @@ import com.vhsolucoes.jpa2.wrapper.ApuracaoWrapper;
 @ViewScoped
 public class ApuracaoBean  implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private ApuracaoService apuracaoService;
 

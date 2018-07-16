@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<quesito id="1" nome="Comissão de frente"  peso="5" />
+	<quesito id="2" nome="Evolução" peso="6"/>
+	<quesito id="3" nome="Conjunto" peso="7"/>
+</dataset>

@@ -16,6 +16,11 @@ import com.vhsolucoes.jpa2.util.jsf.FacesUtil;
 @ViewScoped
 public class CadastroEscolaSambaBean implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private CadastroEscolaSambaService cadastroEscolaSambaService;
 
@@ -34,8 +39,7 @@ public class CadastroEscolaSambaBean implements Serializable {
 	public void salvar() {
 		try {
 			this.cadastroEscolaSambaService.salvar(escolaSamba);
-			FacesUtil.addSuccessMessage("Escola de samba salva com sucesso!");
-
+			FacesUtil.addSuccessMessage("Escola de samba "+escolaSamba.getNome()+" salva com sucesso!");
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}

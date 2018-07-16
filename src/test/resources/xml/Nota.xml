@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<nota id="1" nota="10" jurado_id="1" escola_samba_id="1"  quesito_id="1"  />
+	<nota id="2" nota="9" jurado_id="1" escola_samba_id="1"  quesito_id="2"   />
+	
+	<nota id="3" nota="8" jurado_id="2" escola_samba_id="1"  quesito_id="1"  />
+	<nota id="4" nota="7" jurado_id="2" escola_samba_id="1"  quesito_id="2"   />
+	
+	<nota id="5" nota="6" jurado_id="1" escola_samba_id="2"  quesito_id="1"  />
+	<nota id="6" nota="5" jurado_id="1" escola_samba_id="2"  quesito_id="2"   />
+	
+	<nota id="7" nota="4" jurado_id="2" escola_samba_id="2"  quesito_id="1"  />
+</dataset>

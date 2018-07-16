@@ -35,20 +35,22 @@
 		    			<p:button outcome="CadastroJurado" icon="ui-icon-pencil" title="Editar">
 		    				<f:param name="jurado" value="#{jurado.id}"/>
 		    			</p:button>
-		    			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()"
-								process="@this" update=":frmPesquisa:confirmacaoExclusaoDialog">
+		    		
+						<p:commandButton icon="ui-icon-trash" title="Excluir"  action="#{pesquisaJuradoBean.excluir}"  update="juradosTable">
 							<f:setPropertyActionListener target="#{pesquisaJuradoBean.juradoSelecionado}" value="#{jurado}" />
+							        <p:confirm header="Exclusão de jurado" message="Tem certeza que deseja excluir o jurado #{pesquisaJuradoBean.juradoSelecionado.nome}?" icon="ui-icon-alert" />
 						</p:commandButton>
+						
 		    		</p:column>
 		    </p:dataTable>
-		    
-		    <p:confirmDialog id="confirmacaoExclusaoDialog" widgetVar="confirmacaoExclusao"
-	        		message="Tem certeza que deseja excluir o jurado #{pesquisaJuradoBean.juradoSelecionado.nome}?"  
-	                header="Exclusão de jurado" severity="alert">
-	        	<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
-	        	<p:commandButton value="Sim" update=":frmPesquisa:juradosTable"
-	        			onclick="confirmacaoExclusao.hide()" action="#{pesquisaJuradoBean.excluir}" />
-	    	</p:confirmDialog>
+
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Sim" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="Não" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+
 	    </h:form>
     </ui:define>
 </ui:composition>

@@ -17,6 +17,11 @@ import com.vhsolucoes.jpa2.util.jsf.FacesUtil;
 @ViewScoped
 public class CadastroJuradoBean implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private CadastroJuradoService cadastroJuradoService;
 
@@ -35,7 +40,7 @@ public class CadastroJuradoBean implements Serializable {
 	public void salvar(){
 		try {
 			this.cadastroJuradoService.salvar(jurado);
-			FacesUtil.addSuccessMessage("Jurado salvo com sucesso!");
+			FacesUtil.addSuccessMessage("Jurado "+jurado.getNome()+" salvo com sucesso!");
 
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());

@@ -23,6 +23,11 @@ import com.vhsolucoes.jpa2.util.jsf.FacesUtil;
 @ViewScoped
 public class VotacaoBean implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private CadastroNotaService cadastroNotaService; 
 	
@@ -41,12 +46,6 @@ public class VotacaoBean implements Serializable {
 
 	private List<Quesito> quesitos;
 
-	private Jurado juradoSelecionado;
-
-	private EscolaSamba escolaSelecionada;
-
-	private Quesito quesitoSelecionado;
-	
 	private Nota nota;
 
 	@PostConstruct
@@ -59,9 +58,6 @@ public class VotacaoBean implements Serializable {
 	
 	public void limpar() {
 		this.nota = new Nota();
-		this.juradoSelecionado = new Jurado();
-		this.escolaSelecionada = new EscolaSamba();
-		this.quesitoSelecionado = new Quesito();
 	}
 	
 	
@@ -98,30 +94,6 @@ public class VotacaoBean implements Serializable {
 
 	public void setQuesitos(List<Quesito> quesitos) {
 		this.quesitos = quesitos;
-	}
-
-	public Jurado getJuradoSelecionado() {
-		return juradoSelecionado;
-	}
-
-	public void setJuradoSelecionado(Jurado juradoSelecionado) {
-		this.juradoSelecionado = juradoSelecionado;
-	}
-
-	public EscolaSamba getEscolaSelecionada() {
-		return escolaSelecionada;
-	}
-
-	public void setEscolaSelecionada(EscolaSamba escolaSelecionada) {
-		this.escolaSelecionada = escolaSelecionada;
-	}
-
-	public Quesito getQuesitoSelecionado() {
-		return quesitoSelecionado;
-	}
-
-	public void setQuesitoSelecionado(Quesito quesitoSelecionado) {
-		this.quesitoSelecionado = quesitoSelecionado;
 	}
 
 	public Nota getNota() {

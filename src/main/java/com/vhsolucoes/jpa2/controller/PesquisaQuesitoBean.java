@@ -27,9 +27,10 @@ public class PesquisaQuesitoBean implements Serializable {
 	private List<Quesito> quesitos = new ArrayList<>();
 
 	private Quesito quesitoSelecionado;
-
-	public List<Quesito> getQuesitos() {
-		return quesitos;
+	
+	@PostConstruct
+	public void inicializar() {
+		quesitos = quesitoDAO.buscarTodos();
 	}
 
 	public void excluir() {
@@ -49,9 +50,9 @@ public class PesquisaQuesitoBean implements Serializable {
 	public void setQuesitoSelecionado(Quesito quesitoSelecionado) {
 		this.quesitoSelecionado = quesitoSelecionado;
 	}
-
-	@PostConstruct
-	public void inicializar() {
-		quesitos = quesitoDAO.buscarTodos();
+	
+	public List<Quesito> getQuesitos() {
+		return quesitos;
 	}
+	
 }

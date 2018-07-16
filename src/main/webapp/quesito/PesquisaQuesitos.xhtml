@@ -35,20 +35,20 @@
 		    			<p:button outcome="CadastroQuesito" icon="ui-icon-pencil" title="Editar">
 		    				<f:param name="quesito" value="#{quesito.id}"/>
 		    			</p:button>
-		    			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()"
-								process="@this" update=":frmPesquisa:confirmacaoExclusaoDialog">
+		    				<p:commandButton icon="ui-icon-trash" title="Excluir"  action="#{pesquisaQuesitoBean.excluir}"  update="quesitosTable">
 							<f:setPropertyActionListener target="#{pesquisaQuesitoBean.quesitoSelecionado}" value="#{quesito}" />
+							        <p:confirm header="Exclusão de quesito" message="Tem certeza que deseja excluir o quesito #{pesquisaQuesitoBean.quesitoSelecionado.nome}?" icon="ui-icon-alert" />
 						</p:commandButton>
 		    		</p:column>
 		    </p:dataTable>
 		    
-		    <p:confirmDialog id="confirmacaoExclusaoDialog" widgetVar="confirmacaoExclusao"
-	        		message="Tem certeza que deseja excluir o quesito #{pesquisaQuesitoBean.quesitoSelecionado.nome}?"  
-	                header="Exclusão de quesito" severity="alert">
-	        	<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
-	        	<p:commandButton value="Sim" update=":frmPesquisa:quesitosTable"
-	        			onclick="confirmacaoExclusao.hide()" action="#{pesquisaQuesitoBean.excluir}" />
-	    	</p:confirmDialog>
+		   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Sim" type="button"
+					styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="Não" type="button"
+					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+
 	    </h:form>
     </ui:define>
 </ui:composition>

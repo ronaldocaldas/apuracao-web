@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<jurado id="1" nome="Ronaldo" cpf="45582915583" />
+	<jurado id="2" nome="Teste" cpf="83217346424" />
+	<jurado id="3" nome="Teste exclusao" cpf="89612129312" />
+</dataset>

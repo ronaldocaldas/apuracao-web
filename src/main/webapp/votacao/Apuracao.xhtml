@@ -18,11 +18,11 @@
 				rows="20" paginator="true" paginatorAlwaysVisible="false"
 				paginatorPosition="bottom">
 
-					<p:column headerText="Escola" colspan="5"
-						style="text-align: center; width: 100px" groupRow="true">
-						<h:outputText value="#{apuracao.nomeEscola}" />
-					</p:column>
-				
+				<p:column headerText="Escola" colspan="5"
+					style="text-align: center; width: 100px" groupRow="true">
+					<h:outputText value="#{apuracao.nomeEscola}" />
+				</p:column>
+
 				<p:column headerText="Quesito" groupRow="true"
 					style="text-align: center; width: 100px">
 					<h:outputText value="#{apuracao.nomeQuesito}" />
@@ -40,7 +40,9 @@
 
 				<p:column headerText="Média"
 					style="text-align: center; width: 100px">
-					<h:outputText value="#{apuracao.media}" />
+					<h:outputText value="#{apuracao.media}">
+						<f:convertNumber maxFractionDigits="1" />
+					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Nota" style="text-align: center; width: 100px">

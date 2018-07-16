@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<escola_samba id="1" nome="Acadêmicos da Ilha de Java" cnpj="82237928000159" />
+	<escola_samba id="2" nome="Unidos do código limpo" cnpj="71380829000105" />
+	<escola_samba id="3" nome="Mocidade independente do codigo aberto" cnpj="18826424000175" />
+</dataset>

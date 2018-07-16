@@ -40,6 +40,7 @@ public class PesquisaEscolaSambaBean implements Serializable {
 		} catch (NegocioException e) {
 			FacesUtil.addErrorMessage(e.getMessage());
 		}
+
 	}
 
 	public EscolaSamba getEscolaSambaSelecionado() {

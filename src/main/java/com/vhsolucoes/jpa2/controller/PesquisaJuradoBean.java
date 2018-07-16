@@ -32,14 +32,16 @@ public class PesquisaJuradoBean implements Serializable {
 		return jurados;
 	}
 
-	public void excluir() {
-		try {
-			juradoDAO.excluir(juradoSelecionado);
-			this.jurados.remove(juradoSelecionado);
-			FacesUtil.addSuccessMessage("Jurado " + juradoSelecionado.getNome() + " excluído com sucesso.");
-		} catch (NegocioException e) {
-			FacesUtil.addErrorMessage(e.getMessage());
-		}
+	public void excluir(){
+		
+			try {
+				juradoDAO.excluir(juradoSelecionado);
+				this.jurados.remove(juradoSelecionado);
+				FacesUtil.addSuccessMessage("Jurado " + juradoSelecionado.getNome() + " excluído com sucesso.");
+			} catch (NegocioException e) {
+				FacesUtil.addErrorMessage(e.getMessage());
+			}
+			
 	}
 
 	public Jurado getJuradoSelecionado() {

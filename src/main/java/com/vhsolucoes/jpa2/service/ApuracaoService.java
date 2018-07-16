@@ -10,6 +10,11 @@ import com.vhsolucoes.jpa2.wrapper.ApuracaoWrapper;
 
 public class ApuracaoService implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@Inject
 	private NotaDAO notaDAO;
 
